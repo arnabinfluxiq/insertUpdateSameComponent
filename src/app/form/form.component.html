@@ -1,0 +1,32 @@
+<form [formGroup]='ff'>
+  <input type="text" formControlName="editid">
+<table>
+<tr>
+<input placeholder="Name" formControlName="name">
+</tr>
+<tr>
+<input placeholder="Email" formControlName="email">
+</tr>
+<tr>
+<p *ngIf="params_id != null">
+<button (click)="updateData()">UPDATE</button>
+</p><p *ngIf="params_id ==  null">
+<button (click)="submitData()">INSERT</button>
+</p>
+</tr>
+</table>
+</form>
+
+<lib-listing *ngIf ='listingarray.length>0'
+  [datasource] ='listingarray'
+  [sourcedata] ='tablename'
+  [skip] ='listingarray_skip'
+  [modify_header_array] = 'listingarray_modify_header'
+  [apiurl] = 'apiurl'
+  [deleteendpoint] = 'deletesingledata'
+  [jwttoken] = 'jwttoken'
+  [statusarr] = 'statusarray'
+  [editroute]="editroute1"
+  [updateendpoint]="updateurl"
+  >
+</lib-listing>
